@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private ListView listView;
 
-    private static String url = "http://api.androidhive.info/contacts/";
-
     ArrayList<HashMap<String, String>> contactList;
 
     @Override
@@ -73,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             HttpHandler httpHandler = new HttpHandler();
 
+            String url = "http://api.androidhive.info/contacts/";
             String jsonString = httpHandler.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonString);
 
@@ -87,13 +86,13 @@ public class MainActivity extends AppCompatActivity {
                         String id = c.getString("id");
                         String name = c.getString("name");
                         String email = c.getString("email");
-                        String address = c.getString("address");
-                        String gender = c.getString("gender");
+//                        String address = c.getString("address");
+//                        String gender = c.getString("gender");
 
                         JSONObject phone = c.getJSONObject("phone");
                         String mobile = phone.getString("mobile");
-                        String home = phone.getString("home");
-                        String office = phone.getString("office");
+//                        String home = phone.getString("home");
+//                        String office = phone.getString("office");
 
                         HashMap<String, String> contact = new HashMap<>();
 
